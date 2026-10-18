@@ -1,3 +1,12 @@
+def splash():
+    print()
+    print("~~~~~~~~~~~~~~~~~~~~")
+    print("      Biathlon      ")
+    print(" A hit or miss game ")
+    print("~~~~~~~~~~~~~~~~~~~~")
+    print()
+    print("You got 5 shots")
+
 def view(title,options):
     print(title)
     if type(options) == dict:        #if options is a dict, then print items preceeded by the keys
@@ -9,9 +18,9 @@ def view(title,options):
             print(f"{index + 1}) {n}")
             index += 1
 
-def add(prompt, string):
-    string.append(input(prompt)) 
-    return string
+def gissa(mördare_dict):
+# if input() in mördare_dict[] så har man gissat rätt
+
 
 def menu(title, prompt, options):
     view(title, options)
@@ -24,42 +33,30 @@ def menu(title, prompt, options):
             continue
     return choice
 
-def user_actions(user, items):
-    options = {"a":"Add Item", "l":"List Item", "q":"Quit"}
-    print(f"\nWelcome {user}!\n")
-    view("These are your items\n", items[user])
-    while True:
-        action = menu("\nselect an action\n", "\nOption: ", options)
-        if action == "a":
-            add("\nAdd Item: ", items[user])
-        elif action == "l":
-            view("These are your items\n", items[user])
-        else:
-            print(f"\nGoodbye {user}, your following items are stored: {", ".join(items[user])}")
-            return items
-
-def login(users):
-    while True:
-        user = input("\nUser: ")
-        password = input("\nPassword: ")
-        if user in users and password == users[user]:
-            return user
-        elif menu("\nInvalid username or password\n", "\nAction: ", {"r":"Try again", "q":"Quit"}) != "r":
-            return None
 
 def main():
-    users = {"nisse":"apa", "stina":"t-rex", "bosse":"ko"}
-    data = {"nisse":["luva", "vante"], "bosse":["spik", "skruv", "hammare"], "stina":["tidsmaskin"]}
+    spelplan1 = {
+        "Story" : {"Det har skett ett mord....."},
+
+        "Mördare" : {"Mördare":"Trädgårdsmästaren", "mordvapen":"Kniv från köket"},
+
+        "Trädgården" : {"Trädgårdsmästaren":["Jag plockade ogräs", "Nervös"], "Ledtrådar":["Det är ogräs i alla rabatter", "En kratta ligger på backen"]},
+
+        "Garaget" : {"Stefan":["Hej", "Ser ut som han inte sovit"], "Ledtrådar":["x", "y"]}, 
+
+        "Köket": {"Kocken":["Lagade mat, råka skära mig whoops", "Hon har blod på ärmen"], "Ledtrådar":["a", "b"]}
+    }
     options = {"l":"Leta efter ledtrådar", "g":"Gissa"}
     while True:
-        if menu("\nWelcome to lagra!\n", "\nOption: ", options) != "l":
+        splash()
+        if menu("\nNyckel till värde i dict med story!\n", "\nOption: ", options) != "l":
             print("\nQuitting...\n")
             break
-        user = login(users)
-        if user == None:
-            print("\nYou are logged out")
-            continue
-        user_actions(user, data)
+        #user = login(users)
+        #if user == None:
+            #print("\nYou are logged out")
+            #continue
+        #user_actions(user, data)
             
 
 main()
