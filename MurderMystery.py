@@ -1,5 +1,3 @@
-vfudizpvbufdizb
-
 ledtrådar = {
     "lampan" : ["Lampan är trasig", "Lampan har blod på sig"]
 }
