@@ -51,7 +51,7 @@ huset = {
 #när man kommer till vardagsrummet Choices()
 def Choices(huset):
     for x in huset:
-        print(f"{x}) {huset[x]["namn"]}")
+        print(f"{x}) {huset[x]["namn"]}") # anropa view istället
 
     val = input("Vilket rum vill du gå till? ")
     if val.strip().lower() in huset:
@@ -68,12 +68,6 @@ inventory = [] #kanske för att samla ledtrådar
 
 def splash(): 
     print(Splashkontext({"Blackwood Manor"}))
-
-def main(): 
-    splash()
-    view()
-    print()
-    clear()
     
 def view(description,string):
     print(description)
@@ -84,5 +78,12 @@ def view(description,string):
 #2 är attribut
 def clear(): #Den här kanske är smidig om vi vill rensa terminalen mellan rummen eller när man startar om spelet
   print("\033c", end="")
+
+def main(): 
+    options = {"l":"Leta efter ledtrådar", "g":"Gissa"}
+    splash()
+    view()
+    print()
+    clear()
 
 
