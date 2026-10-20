@@ -1,4 +1,4 @@
-ledtrådar = {
+ledtrådar = { #prövar att fixa
     "lampan" : ["Lampan är trasig", "Lampan har blod på sig"]
 }
 
