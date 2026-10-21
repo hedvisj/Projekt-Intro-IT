@@ -49,14 +49,14 @@ huset = {
     }
 }
 
-def view(description,string):
+def view(description,string, key):
     print(description)
-    for key in string:
-       print(f"{key}) {huset[key]["namn"]}")
+    for x in string:
+       print(f"{x}) {huset[x][key]}") 
 
 #när man kommer till vardagsrummet Choices()
-def Choices(huset):
-    view("Välj ett alternativ", huset)
+def Choices(where):
+    view("Välj ett alternativ", where, "namn") #kanske får ändra "namn" här sen
     
     #for x in huset:
     #    print(f"{x}) {huset[x]["namn"]}") # anropa view istället
