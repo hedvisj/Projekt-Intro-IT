@@ -53,9 +53,9 @@ def Choices(huset):
     for x in huset:
         print(f"{x}) {huset[x]["namn"]}") # anropa view istället
 
-    val = input("Vilket rum vill du gå till? ")
-    if val.strip().lower() in huset:
-        rum = huset[val]
+    val = input("Vilket rum vill du gå till? ").strip().lower()
+    if val in huset:
+        rum = huset[val] 
 
         print(f"\nDu går in i {rum["namn"]}")
         print(f"Där finns {rum["person"]}")
