@@ -1,6 +1,6 @@
-ledtrådar = {
-    "lampan" : ["Lampan är trasig", "Lampan har blod på sig"]
-}
+# ledtrådar = {
+#     "lampan" : ["Lampan är trasig", "Lampan har blod på sig"]
+# }
 
 Splashkontext = {"Blackwood Manor": 
             "Välkommen till Blackwood Manor, en miljardärs villa."
@@ -17,7 +17,7 @@ Splashkontext = {"Blackwood Manor":
             # "\n Lycka till!"
              }
 huset = {
-    "rum1": {
+    "1": {
         "namn": "Trädgården", #MEN DET ÄR VINTER
         "person": "Trädgårdsmästaren",
         "alibi": "Jag vattnade rosorna",
@@ -28,7 +28,7 @@ huset = {
         }
     },
 
-    "rum2": {
+    "2": {
         "namn": "Garaget",
         "person": "Butlern",
         "alibi": "Jag tvättade bilen",
@@ -38,7 +38,7 @@ huset = {
         }
     },
 
-    "rum3": {
+    "3": {
         "namn": "Köket",
         "person": "Kocken",
         "alibi": "Jag lagade middag",
@@ -48,6 +48,12 @@ huset = {
         }
     }
 }
+
+def view(description,string):
+    print(description)
+    for key in string:
+       print(f"{key}) {huset[key]["namn"]}")
+
 #när man kommer till vardagsrummet Choices()
 def Choices(huset):
     view("Välj ett alternativ", huset)
@@ -55,7 +61,7 @@ def Choices(huset):
     #for x in huset:
     #    print(f"{x}) {huset[x]["namn"]}") anropa view istället
 
-    val = input("Vilket rum vill du gå till? ")
+    val = input("Vilket rum vill du gå till? ").strip().lower()
     if val in huset:
         rum = huset[val] 
 
@@ -70,12 +76,7 @@ inventory = [] #kanske för att samla ledtrådar
 
 def splash(): 
     print(Splashkontext({"Blackwood Manor"}))
-    
-def view(description,string):
-    print(description)
-    for key in string:
-        print(f"{key} {string[key]}")
-
+  
 #1 är alibi
 #2 är attribut
 def clear(): #Den här kanske är smidig om vi vill rensa terminalen mellan rummen eller när man startar om spelet
