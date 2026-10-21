@@ -50,8 +50,10 @@ huset = {
 }
 #när man kommer till vardagsrummet Choices()
 def Choices(huset):
-    for x in huset:
-        print(f"{x}) {huset[x]["namn"]}") # anropa view istället
+    view("Välj ett alternativ", huset)
+    
+    #for x in huset:
+    #    print(f"{x}) {huset[x]["namn"]}") # anropa view istället
 
     val = input("Vilket rum vill du gå till? ").strip().lower()
     if val in huset:
