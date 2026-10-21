@@ -59,9 +59,9 @@ def Choices(where):
     view("Välj ett alternativ", where, "namn") #kanske får ändra "namn" här sen
     
     #for x in huset:
-    #    print(f"{x}) {huset[x]["namn"]}") # anropa view istället
+    #    print(f"{x}) {huset[x]["namn"]}") anropa view istället
 
-    val = input("Vilket rum vill du gå till? 1-3 ")
+    val = input("Vilket rum vill du gå till? ").strip().lower()
     if val in huset:
         rum = huset[val] 
 
